@@ -19,15 +19,15 @@ Sistem ini terdiri dari dua komponen utama:
 ## Persyaratan
 
 Sebelum memulai, pastikan Anda telah menginstal perangkat lunak berikut:
+*   **Node.js v18+**: Diperlukan untuk menjalankan Gemini CLI. Anda bisa mengunduhnya dari [situs resmi Node.js](https://nodejs.org/).
 *   **Python 3.x**: Untuk menjalankan server lokal.
 *   **Browser Modern**: Seperti Google Chrome, Mozilla Firefox, atau Microsoft Edge.
-*   **Ekstensi Tampermonkey**: Ekstensi browser untuk menjalankan skrip pengguna.
 
 ---
 
-## Langkah-langkah Pengaturan
+## Instalasi dan Pengaturan
 
-Ikuti tiga langkah di bawah ini untuk menyiapkan keseluruhan sistem.
+Ikuti empat langkah di bawah ini untuk menyiapkan keseluruhan sistem.
 
 ### Langkah 1: Siapkan Direktori Proyek
 
@@ -42,17 +42,30 @@ Pastikan semua file proyek berada dalam satu direktori yang sama. Strukturnya ak
 └── Autofill MagangHub-0.0.user.js (Referensi skrip)
 ```
 
-### Langkah 2: Instal Ekstensi Tampermonkey
+### Langkah 2: Instal Gemini CLI
+
+1.  Buka terminal atau command prompt.
+2.  Jalankan perintah berikut untuk menginstal Gemini CLI secara global melalui `npm` (yang disertakan dengan Node.js):
+    ```bash
+    npm install -g @google/gemini-cli
+    ```
+3.  Setelah instalasi selesai, autentikasikan diri Anda dengan menjalankan perintah:
+    ```bash
+    gemini
+    ```
+    Ikuti petunjuk yang muncul di terminal untuk login dengan akun Google Anda melalui browser.
+
+### Langkah 3: Instal Ekstensi Tampermonkey
 
 Instal ekstensi Tampermonkey dari toko resmi browser Anda:
 *   [Untuk Google Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
 *   [Untuk Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
 *   [Untuk Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
 
-### Langkah 3: Instal Skrip Pengguna (Userscript)
+### Langkah 4: Instal Skrip Pengguna (Userscript)
 
 1.  Buka browser Anda dan klik ikon ekstensi Tampermonkey, lalu pilih **"Dasbor"** (Dashboard).
-2.  Klik pada tab **Utilities**, lalu di bagian **"Create"**, klik **"New Script"**.
+2.  Klik pada tab **"Buat skrip baru"** (atau `Create a new script`).
 3.  Hapus semua konten default yang ada di editor.
 4.  Salin seluruh kode di bawah ini dan tempelkan ke dalam editor Tampermonkey.
 
@@ -158,8 +171,8 @@ Ikuti tiga langkah sederhana ini setiap hari untuk melaporkan absensi.
 
 ### Langkah 1: Buat Laporan Harian
 
-- Buka terminal atau command prompt di direktori proyek Anda.
-- Jalankan Gemini CLI dengan memberikan poin-poin aktivitas Anda hari ini. Gunakan format berikut:
+- Buka terminal Gemini CLI di direktori proyek Anda.
+- Jalankan perintah dengan memberikan poin-poin aktivitas Anda hari ini. Gunakan format berikut:
 
 ```
 @asisten_absen.md saya hadir hari ini: [tuliskan poin-poin aktivitas Anda]
@@ -174,7 +187,7 @@ Ikuti tiga langkah sederhana ini setiap hari untuk melaporkan absensi.
 
 ### Langkah 2: Jalankan Server Lokal
 
-- Di terminal yang sama, jalankan perintah berikut:
+- Di terminal lain (biarkan Gemini CLI tetap berjalan jika perlu), jalankan perintah berikut:
 
 ```bash
 python server.py
